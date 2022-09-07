@@ -41,9 +41,11 @@ class ArticleViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         """
         글 등록
-        작성 규칙을 준수해야 작성 가능
 
-        비밀번호는 암호화
+        작성 규칙을 준수해야 작성 가능
+        비밀번호를 암호화 하여 저장
+        현재 날씨 정보를 기록
+
         :param request:
         :param args:
         :param kwargs:
@@ -76,6 +78,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     def update(self, request, *args, **kwargs):
         """
         글 수정
+
         비밀번호가 일치해야 수정 가능
 
         :param request:
@@ -115,7 +118,9 @@ class ArticleViewSet(viewsets.ModelViewSet):
     def delete(self, request, **kwargs):
         """
         비밀번호로 삭제
+        
         비밀번호를 post 방식으로 입력 받음
+        비밀번호로 검증 후 삭제
 
         :param request: request
         :param kwargs: pk
