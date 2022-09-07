@@ -6,11 +6,16 @@ class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = '__all__'
-        extra_kwargs = {'password': {'write_only': True}}           # 값이 출력되지 않음
+        read_only_fields = ['weather']                      # 사용자가 값을 넣지 못함
+        extra_kwargs = {
+            'password': {'write_only': True},               # 값이 출력되지 않음
+        }
 
 
 class ArticlePasswordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         fields = ['id', 'password']
-        extra_kwargs = {'password': {'write_only': True}}
+        extra_kwargs = {
+            'password': {'write_only': True},               # 값이 출력되지 않음
+        }

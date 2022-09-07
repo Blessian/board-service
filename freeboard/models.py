@@ -11,5 +11,6 @@ class Article(models.Model):
         validators=[password_regex],
         max_length=128,
     )
+    weather = models.CharField(max_length=20, default="No DATA")
 
     REQUIRED_FIELDS = ['title', 'content', 'password']

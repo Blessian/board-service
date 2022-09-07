@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 # secret
-import os
-import json
-from django.core.exceptions import ImproperlyConfigured
+from common import get_secret
+
+import common.apps
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,20 +24,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-secrets_file = os.path.join(BASE_DIR, 'secrets.json')   # secrets.json path
-
-with open(secrets_file) as f:                           # read file
-    secrets = json.loads(f.read())
-
-
-def get_secret(setting):                                # get secret or return error_msg
-    try:
-        return secrets[setting]
-    except KeyError:
-        error_msg = 'Set the {} environment variable".format(setting)'
-        raise ImproperlyConfigured(error_msg)
-
-
 SECRET_KEY = get_secret('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -63,8 +49,7 @@ INSTALLED_APPS = [
     'rest_framework',
     # app
     'freeboard.apps.FreeboardConfig',
-    # 이모지
-    'emoji',
+    'common.apps.CommonConfig',
 ]
 
 MIDDLEWARE = [
