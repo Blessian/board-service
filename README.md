@@ -36,7 +36,7 @@
 </br>
 ## 🛠 Unit test
 
-![image](https://user-images.githubusercontent.com/83492367/188457691-4f931106-3ddb-44ee-8e55-38c96b9c061e.png)
+![image](https://user-images.githubusercontent.com/74029539/188881524-c6d2a5b8-f4d5-4956-a2eb-879a241103b9.png)
 
 </br>
 
