@@ -10,7 +10,6 @@ class Article(models.Model):
     password = models.CharField(
         validators=[password_regex],
         max_length=128,
-        help_text='비밀번호는 6 자 이상이어야 하고, 숫자 1 개 이상 반드시 포함 되어야 합니다'
     )
 
     REQUIRED_FIELDS = ['title', 'content', 'password']
